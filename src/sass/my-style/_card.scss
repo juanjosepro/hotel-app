@@ -1,0 +1,84 @@
+.card {
+    border: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding: 0 15px 0 15px;
+    width: 320px;
+    height: 340px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+}
+
+.card__header {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px 0 #00000042;
+    position: relative;
+    top: -20px;
+    z-index: 3;
+}
+.card:hover .card__header {
+    transform: translate3d(0, 0, 0);
+    transition: all 300ms cubic-bezier(0.34, 1.61, 0.7, 1);
+    position: relative;
+    top: -50px;
+}
+
+.card_img {
+    border-radius: 5px;
+    max-width: 100%;
+    max-height: 250px;
+    display: block;
+}
+.card__actions {
+    position: relative;
+    z-index: 1;
+    top: -40px;
+    text-align: center;
+}
+.card__title {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -20px;
+
+    .card__title-name {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #000000;
+        font-size: 1.125rem;
+        font-weight: bold;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    }
+    .card__title-price {
+        border-radius: 10rem;
+        outline: none;
+        background-color: #6200EA;
+        color: #fff;
+        font-weight: 300;
+        padding: 0 15px;
+        font-weight: 700;
+    }
+    .card__title-price:hover {
+        background-color: #29065a;
+    }
+}
+
+.card__description {
+    position: relative;
+    top: -20px;
+    text-align: center;
+    color: #999999;
+    margin-bottom: 5px;
+}
+.card__description .card__description-title{
+    text-transform: uppercase;
+    color: #3C4858;
+    font-size: 0.8em;
+    line-height: 1.4em;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+.card__description .card__description-list{
+    text-align: left;
+}

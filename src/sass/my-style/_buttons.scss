@@ -1,0 +1,108 @@
+.v-card {
+    border-radius: 6px;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+  .gradient-ohhappiness {
+    background: linear-gradient(45deg, #1f9a37, #25e651) !important;
+  }
+  .gradient-ibiza {
+    background: #ee0979;
+    background: -webkit-linear-gradient(45deg, #ee0979, #ff6a00)!important;
+    background: linear-gradient(45deg, #ee0979, #ff6a00)!important;
+  }
+  .gradient-warning {
+    background: linear-gradient(45deg, #9c6b0f, #db9a0d) !important;
+  }
+  .gradient-info {
+    background: linear-gradient(45deg, #1f819a, #0abed6) !important;
+  }
+  .gradient-secondary {
+    background: linear-gradient(45deg, #181616, #343534) !important;
+  }
+  .text-white {
+    color: #fff!important;
+  }
+  .badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, .075);
+  }
+  .badge-pill {
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 10rem;
+  }
+  .badge-danger {
+    color: #fff;
+    background-color: #f5365c;
+  }
+  .shadow-danger {
+    box-shadow: 3px 5px 20px #f5365c!important;
+  }
+  .badge-success {
+    color: #fff;
+    background-color: #02ba5a;
+  }
+  .shadow-success {
+    box-shadow: 3px 5px 20px #02ba5a!important;
+  }
+  .shadow-primary {
+    box-shadow: 3px 5px 20px #5f72e3!important;
+  }
+  .badge-primary {
+      color: #fff;
+      background-color: #14abef;
+  }
+  .shadow-dark {
+    box-shadow: 3px 5px 20px #000000!important;
+  }
+  .badge-dark {
+      color: #fff;
+      background-color: #000000;
+  }
+  .shadow-light {
+    box-shadow: 3px 5px 20px #bcbdbd!important;
+  }
+  .badge-light {
+      color: #212529;
+      background-color: #f1f1f1;
+  }
+  .shadow-info {
+    box-shadow: 3px 5px 20px #03d0ea!important;
+  }
+
+  .badge-info {
+      color: #fff;
+      background-color: #03d0ea;
+  }
+  .shadow-warning {
+    box-shadow: 3px 5px 20px #f78707!important;
+  }
+
+  .badge-warning {
+    color: #fff;
+    background-color: #f78707;
+  }
+  .shadow-secondary {
+    box-shadow: 3px 5px 20px #d13adf!important;
+  }
+  .badge-secondary {
+      color: #fff;
+      background-color: #d13adf;
+  }
+  .m-1 {
+    margin: .25rem!important;
+  }
+  .my-button {
+    padding: 9px 18px 9px 18px;
+    outline:none;
+    text-transform: uppercase;
+  }
