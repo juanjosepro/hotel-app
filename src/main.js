@@ -11,7 +11,7 @@ import i18n from './i18n'
 import './registerServiceWorker'
 
 //login
-store.dispatch("login/getUserAuth");
+store.dispatch("login/getUserAuth"); 
 
 new Vue({
   store,
