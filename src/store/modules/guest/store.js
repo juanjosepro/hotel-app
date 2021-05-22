@@ -30,7 +30,7 @@ export const GuestStore = {
           }
         }
       } catch (error) {
-        console.log(error)
+        commit(CHECK_GUESTS_TIME_LIMIT, [])
       }
     },
   },

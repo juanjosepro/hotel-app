@@ -5,13 +5,12 @@
     <v-col cols="12">
       <v-card class="elevation-20">
         <v-card-title>
-          <div style="min-width: 100%" class="d-flex justify-space-between">
-            <div class="d-flex justify-space-between">
+          <div class="m-card-title">
+            <div class="m-card-item1">
               <v-btn color="success" mediun @click="openDialog()">
                 Registrar
               </v-btn>
               <v-select
-                style="width: 300px"
                 v-model="status"
                 :items="transStatus"
                 item-text="text"
@@ -20,15 +19,16 @@
                 dense
                 @change="changeRooms()"
                 outlined
+                class="ml-2"
               />
             </div>
-            <div>
+            <div class="m-card-item2">
               <v-text-field
                 v-model="search"
                 append-icon="mdi-magnify"
                 single-line
                 hide-details
-                style="max-width: 220px"
+                style="width: 100%"
                 placeholder="Buscar"
                 outlined
                 dense
@@ -175,3 +175,23 @@ export default {
   },
 };
 </script>
+<style scoped>
+.m-card-title{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.m-card-item1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 730px) {
+  .m-card-title {
+    flex-direction: column;
+  }
+  .m-card-item2 {
+    width: 100%;
+  }
+}
+</style>

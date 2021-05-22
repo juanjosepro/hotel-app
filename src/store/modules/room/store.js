@@ -19,8 +19,10 @@ export const RoomStore = {
     createRoom: async ({ commit }, payload) => {
       try {
         const res = await RoomServices.createRoom(payload);
+        console.log(res.data)
         await commit(CREATE_ROOM, res.data.data.attributes);
       } catch (error) {
+        console.log(error)
         commit(MANAGE_ERRORS, error.response.data.errors);
       }
     },

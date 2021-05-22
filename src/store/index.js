@@ -21,6 +21,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    loaderTrue: true,
     barColor: 'rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)',
     barImage: barImage,
     drawer: null,
@@ -31,6 +32,9 @@ export default new Vuex.Store({
     },
     SET_DRAWER (state, payload) {
       state.drawer = payload
+    },
+    SET_LOADER (state, payload) {
+      state.loaderTrue = payload
     },
   },
   actions: {

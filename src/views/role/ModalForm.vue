@@ -13,6 +13,7 @@
               (*) Indica campo requerido
             </small>
           </v-card-title>
+          <v-spacer/>
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="12" md="12">

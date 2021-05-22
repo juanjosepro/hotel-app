@@ -21,7 +21,9 @@ export const _axios = axios.create(config)
 _axios.interceptors.request.use(
   function (config) {
     // Do something before request is sent
-    store.commit('loader/START_LOADING');
+    if (store.state.loaderTrue) {
+      store.commit('loader/START_LOADING');
+    } 
     return config
   },
   function (error) {

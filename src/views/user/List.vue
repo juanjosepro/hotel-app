@@ -1,93 +1,103 @@
 <template>
-  <loading v-if="loading"/>
+  <loading v-if="loading" />
   <div v-else>
-    <base-material-card
-      :color="showDisabledUsers ? 'danger' : 'success'"
-      icon="mdi-clipboard-text"
-      :title="`LISTA DE USUARIOS ${
-        showDisabledUsers ? 'INHABILITADOS' : 'HABILITADOS'
-      }`"
-      class="px-5 py-3"
-    >
-      <div class="my-base-card-header">
-        <div>
-          <router-link :to="{ name: 'users.create' }">
-            <button
-              class="badge badge-pill badge-success shadow-success m-1 my-button"
-            >
-              Registrar
-            </button>
-          </router-link>
-
+    <v-row>
+      <v-col cols="12" class="py-0">
+        <router-link :to="{ name: 'users.create' }">
           <button
-            :class="{
-              'badge badge-pill m-1 my-button': true,
-              'badge-primary shadow-primary': showDisabledUsers,
-              'badge-danger shadow-danger': !showDisabledUsers,
-            }"
-            @click="listUsers(!showDisabledUsers)"
+            class="badge badge-pill badge-success shadow-success m-1 my-button"
           >
-            {{
-              `Ver usuarios ${
-                showDisabledUsers ? "habilitados" : "inhabilitados"
-              }`
-            }}
+            Registrar
           </button>
-        </div>
+        </router-link>
 
-        <div class="data-table-search">
-          <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Buscar"
-            outlined
-            dense
-            single-line
-            hide-details
-          />
-        </div>
-      </div>
-
-      <v-data-table
-        :headers="headers"
-        :items="users"
-        :search="search"
-        sort-by="role.name"
-        locale="es"
-        :loading="loading"
-        loading-text="Cargando datos"
-        no-results-text="No se encontraron coincidencias..."
-        no-data-text="Sin datos que mostrar..."
-        class="m-data-table"
-      >
-        <template v-slot:[`item.tools`]="{ item }">
-          <router-link :to="{ name: 'users.edit', params: { dni: item.dni } }">
-            <v-tooltip bottom>
-              <template v-slot:activator="{ on, attrs }">
-                <v-icon class="mr-2" v-bind="attrs" v-on="on">
-                  mdi-account-search
-                </v-icon>
+        <button
+          :class="{
+            'badge badge-pill m-1 my-button': true,
+            'badge-primary shadow-primary': showDisabledUsers,
+            'badge-danger shadow-danger': !showDisabledUsers,
+          }"
+          @click="listUsers(!showDisabledUsers)"
+        >
+          {{
+            `Ver usuarios ${
+              showDisabledUsers ? "habilitados" : "inhabilitados"
+            }`
+          }}
+        </button>
+      </v-col>
+      <v-col cols="12">
+        <v-card>
+          <v-card-title>
+            <h3 v-text="`LISTA DE USUARIOS ${
+                showDisabledUsers ? 'INHABILITADOS' : 'HABILITADOS'
+              }`"
+            />
+            <v-spacer></v-spacer>
+            <div class="data-table-search">
+              <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Buscar"
+                outlined
+                dense
+                single-line
+                hide-details
+              />
+            </div>
+          </v-card-title>
+          <v-card-text>
+            <v-data-table
+              :headers="headers"
+              :items="users"
+              :search="search"
+              sort-by="role.name"
+              locale="es"
+              :loading="loading"
+              loading-text="Cargando datos"
+              no-results-text="No se encontraron coincidencias..."
+              no-data-text="Sin datos que mostrar..."
+              class="m-data-table"
+            >
+              <template v-slot:[`item.tools`]="{ item }">
+                <router-link
+                  :to="{ name: 'users.edit', params: { dni: item.dni } }"
+                >
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-icon class="mr-2" v-bind="attrs" v-on="on">
+                        mdi-account-search
+                      </v-icon>
+                    </template>
+                    <small>Ver mas</small>
+                  </v-tooltip>
+                </router-link>
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-icon
+                      v-bind="attrs"
+                      v-on="on"
+                      @click="selectDisableUser(item)"
+                    >
+                      {{
+                        textStatus === "Habilitar"
+                          ? "mdi-account-check"
+                          : "mdi-account-off"
+                      }}
+                    </v-icon>
+                  </template>
+                  <small>
+                    {{
+                      textStatus === "Habilitar" ? "Habilitar" : "Inhabilitar"
+                    }}
+                  </small>
+                </v-tooltip>
               </template>
-              <small>Ver mas</small>
-            </v-tooltip>
-          </router-link>
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on, attrs }">
-              <v-icon v-bind="attrs" v-on="on" @click="selectDisableUser(item)">
-                {{
-                  textStatus === "Habilitar"
-                    ? "mdi-account-check"
-                    : "mdi-account-off"
-                }}
-              </v-icon>
-            </template>
-            <small>
-              {{ textStatus === "Habilitar" ? "Habilitar" : "Inhabilitar" }}
-            </small>
-          </v-tooltip>
-        </template>
-      </v-data-table>
-    </base-material-card>
+            </v-data-table>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
 
     <modal-warning
       :text="`¿Desea ${textStatus} al usuario ${
@@ -132,7 +142,7 @@ export default {
   },
   async created() {
     await this.listUsers(this.showDisabledUsers);
-    this.loading = false
+    this.loading = false;
     EventBus.$on(
       "the-user-confirm-the-warning-modal",
       this.disabledOrEnabledUser

@@ -1,23 +1,25 @@
 <template>
   <loading v-if="loading"/>
   <v-row v-else>
+    <v-col cols="12" class="py-0">
+      <router-link :to="{ name: 'reservation.create' }" class="mr-4">
+        <button
+          class="badge badge-pill badge-success shadow-success m-1 my-button"
+        >
+          Registrar nueva Reserva
+        </button>
+      </router-link>
+      <router-link :to="{ name: 'reservations' }" class="mr-4">
+        <button
+          class="badge badge-pill badge-primary shadow-primary m-1 my-button"
+        >
+          Ver reservas en modo Calendario
+        </button>
+      </router-link>
+    </v-col>
     <v-col cols="12">
       <v-card class="elevation-15">
         <v-card-title>
-          <router-link :to="{ name: 'reservation.create' }" class="mr-4">
-            <button
-              class="badge badge-pill badge-success shadow-success m-1 my-button"
-            >
-              Registrar nueva Reserva
-            </button>
-          </router-link>
-          <router-link :to="{ name: 'reservations' }" class="mr-4">
-            <button
-              class="badge badge-pill badge-primary shadow-primary m-1 my-button"
-            >
-              Ver reservas en modo Calendario
-            </button>
-          </router-link>
           <v-spacer />
           <v-text-field
             v-model="search"

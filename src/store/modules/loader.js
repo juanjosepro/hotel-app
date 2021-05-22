@@ -11,7 +11,9 @@ export const LoaderStore = {
       state.loading++
     },
     [FINISH_LOADING] (state) {
-      state.loading--
+      if (state.loading > 0) {
+        state.loading--
+      }
     },
   }
 }

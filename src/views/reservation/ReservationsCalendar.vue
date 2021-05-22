@@ -1,25 +1,27 @@
 <template>
   <loading v-if="loading"/>
   <v-row v-else class="fill-height">
-    <v-col>
+    <v-col cols="12" class="py-0">
+      <router-link :to="{ name: 'reservation.create' }" class="mr-4">
+        <button
+          class="badge badge-pill badge-success shadow-success m-1 my-button"
+        >
+          Registrar nueva Reserva
+        </button>
+      </router-link>
+      <router-link :to="{ name: 'reservation.table' }" class="mr-4">
+        <button
+          class="badge badge-pill badge-primary shadow-primary m-1 my-button"
+        >
+          Ver reservas en modo Tabla
+        </button>
+      </router-link>
+    </v-col>
+    <v-col cols="12">
       <v-sheet height="64">
         <v-toolbar
           flat
         >
-          <router-link :to="{ name: 'reservation.create' }" class="mr-4">
-            <button
-              class="badge badge-pill badge-success shadow-success m-1 my-button"
-            >
-              Registrar nueva Reserva
-            </button>
-          </router-link>
-          <router-link :to="{ name: 'reservation.table' }" class="mr-4">
-            <button
-              class="badge badge-pill badge-primary shadow-primary m-1 my-button"
-            >
-              Ver reservas en modo Tabla
-            </button>
-          </router-link>
           <v-btn
             outlined
             class="mr-4"

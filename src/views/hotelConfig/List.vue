@@ -14,10 +14,22 @@
           <v-card-text>
             <v-row>
               <v-col cols="6" sm="6" md="6">
-                <v-text-field v-model="form.name" label="Nombre" outlined dense />
+                <v-text-field
+                  v-model="form.name"
+                  label="Nombre"
+                  outlined
+                  dense
+                  :error-messages="errors.name ? errors.name[0] : ''"
+                />
               </v-col>
               <v-col cols="6" sm="6" md="6">
-                <v-text-field v-model="form.ruc" label="RUC" outlined dense />
+                <v-text-field
+                  v-model="form.ruc"
+                  label="RUC"
+                  outlined
+                  dense
+                  :error-messages="errors.ruc ? errors.ruc[0] : ''"
+                />
               </v-col>
               <v-col cols="12" sm="12" md="12">
                 <v-text-field
@@ -25,16 +37,35 @@
                   label="Ubicación"
                   outlined
                   dense
+                  :error-messages="errors.location ? errors.location[0] : ''"
                 />
               </v-col>
-              <v-col cols="5" sm="5" md="5">
-                <v-text-field v-model="form.phone" label="Telefono" outlined dense />
+              <v-col cols="8" sm="8" md="5">
+                <v-text-field
+                  v-model="form.phone"
+                  label="Telefono"
+                  outlined
+                  dense
+                  :error-messages="errors.phone ? errors.phone[0] : ''"
+                />
               </v-col>
-              <v-col cols="5" sm="5" md="5">
-                <v-text-field v-model="form.email" label="Email" outlined dense />
+              <v-col cols="4" sm="4" md="2">
+                <v-text-field
+                  v-model="form.levels"
+                  label="Niveles"
+                  outlined
+                  dense
+                  :error-messages="errors.levels ? errors.levels[0] : ''"
+                />
               </v-col>
-              <v-col cols="2" sm="2" md="2">
-                <v-text-field v-model="form.levels" label="Niveles" outlined dense />
+              <v-col cols="12" sm="12" md="5">
+                <v-text-field
+                  v-model="form.email"
+                  label="Email"
+                  outlined
+                  dense
+                  :error-messages="errors.email ? errors.email[0] : ''"
+                />
               </v-col>
               <v-col cols="12" sm="12" md="12">
                 <v-textarea
@@ -43,9 +74,12 @@
                   label="Descripción"
                   outlined
                   name="input-7-4"
+                  :error-messages="
+                    errors.description ? errors.description[0] : ''
+                  "
                 />
               </v-col>
-              <v-col cols="6" sm="6" md="6">
+              <v-col cols="12" sm="6" md="6">
                 <v-file-input
                   type="file"
                   name="image"
@@ -58,7 +92,7 @@
                   show-size
                   dense
                   :clearable="false"
-                  :error-messages="`${errors.image ? errors.image[0] : ''}`"
+                  :error-messages="errors.image ? errors.image[0] : ''"
                   @change="getImage"
                 >
                   <template v-slot:selection="{ index, text }">
@@ -81,7 +115,7 @@
                   </template>
                 </v-file-input>
               </v-col>
-              <v-col cols="6" sm="6" md="6">
+              <v-col cols="12" sm="6" md="6">
                 <v-file-input
                   type="file"
                   name="logo"
@@ -94,7 +128,7 @@
                   show-size
                   dense
                   :clearable="false"
-                  :error-messages="`${errors.image ? errors.image[0] : ''}`"
+                  :error-messages="errors.image ? errors.image[0] : ''"
                   @change="getLogo"
                 >
                   <template v-slot:selection="{ index, text }">
@@ -129,31 +163,39 @@
       </v-card>
     </v-col>
     <v-col cols="12" md="5">
-      <v-card class="mx-auto elevation-20" max-width="400" height="300">
-        <v-card-title>
-          <h4 class="text-uppercase font-weight-black">Imagen de el Hotel</h4>
-        </v-card-title>
-        <v-card-text>
-          <images
-            :image="`${form.changeImage ? loadImagen : form.image}`"
-            :alt="hotel.name"
-            style="height: 250px"
-          />
-        </v-card-text>
-      </v-card>
-      <br />
-      <v-card class="mx-auto elevation-20" width="200" height="200">
-        <v-card-title>
-          <h5 class="text-uppercase font-weight-black">Logo de el Hotel</h5>
-        </v-card-title>
-        <v-card-text>
-            <images
-              :image="`${form.changeLogo ? loadLogo : form.logo}`"
-              :alt="hotel.name"
-              style="height: 150px"
-            />
-        </v-card-text>
-      </v-card>
+      <v-row>
+        <v-col cols="12">
+          <v-card class="mx-auto elevation-20" max-width="400" height="300">
+            <v-card-title>
+              <h4 class="text-uppercase font-weight-black">
+                Imagen de el Hotel
+              </h4>
+            </v-card-title>
+            <v-card-text>
+              <images
+                :image="`${form.changeImage ? loadImagen : form.image}`"
+                :alt="hotel.name"
+                style="height: 250px"
+              />
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12">
+          <v-card class="mx-auto elevation-20" max-width="400" height="250">
+            <v-card-title>
+              <h5 class="text-uppercase font-weight-black">Logo de el Hotel</h5>
+            </v-card-title>
+            <v-card-text>
+              <images
+                :image="`${form.changeLogo ? loadLogo : form.logo}`"
+                :alt="hotel.name"
+                style="height: 200px"
+              />
+            </v-card-text>
+          </v-card>
+
+        </v-col>
+      </v-row>
     </v-col>
   </v-row>
 </template>
@@ -184,7 +226,7 @@ export default {
         imagenMiniatura: "",
         changeLogo: false,
         logoMiniatura: "",
-      }
+      },
     };
   },
   computed: {
@@ -209,7 +251,7 @@ export default {
     this.form.description = this.hotel.description;
     this.form.image = this.hotel.image;
     this.form.logo = this.hotel.logo;
-    this.loading = false
+    this.loading = false;
   },
   methods: {
     ...mapActions("hotel", ["getHotel", "updateHotel", "clearErrors"]),

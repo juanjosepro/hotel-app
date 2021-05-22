@@ -202,7 +202,9 @@
       await this.checkTimeLimit();
 
       setInterval(() => {
+        this.setLoader(false)
         this.checkTimeLimit();
+        this.setLoader(true)
       }, 60000);
 
     },
@@ -210,9 +212,13 @@
       ...mapMutations({
         setDrawer: 'SET_DRAWER',
       }),
+      ...mapMutations({
+        setLoader: 'SET_LOADER',
+      }),
       ...mapActions("login",["logout"]),
       ...mapActions("guest", ["getAllGuests"]),
       ...mapActions("notification", ["createNotification"]),
+      
       async myProfile(){
         const { dni } = await this.$store.state.login.userAuth;
         this.$router.push({name: "users.edit", params:{dni: dni}})

@@ -1,15 +1,15 @@
 <template>
   <loading v-if="loading"/>
   <div v-else>
-    <v-row class="ml-1">
-      <button
-        class="badge badge-pill badge-success shadow-success m-1 my-button"
-        @click="openDialog()"
-      >
-        Registrar
-      </button>
-    </v-row>
     <v-row>
+      <v-col cols="12" class="py-0">
+        <button
+          class="badge badge-pill badge-success shadow-success m-1 my-button"
+          @click="openDialog()"
+        >
+          Registrar
+        </button>
+      </v-col>
       <v-col
         v-for="category in categories"
         :key="category.id"
@@ -17,7 +17,7 @@
         md="4"
         sm="6"
       >
-        <base-material-card class="mt-10 card-max-height" type="Bar">
+        <base-material-card class="mt-8 card-max-height" type="Bar">
           <template v-slot:image>
             <img
               style="height: 220px"

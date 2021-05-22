@@ -164,7 +164,7 @@
         </v-form>
       </base-material-card>
     </v-col>
-    <v-col cols="12" md="4" class="mt-7">
+    <v-col cols="12" md="4" class="mt-10">
       <base-material-card
         class="v-card-profile"
         avatar="@/assets/without-image.jpg"
