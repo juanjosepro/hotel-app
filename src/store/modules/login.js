@@ -17,7 +17,7 @@ export const LoginStore = {
     login: async ({ commit, dispatch }, payload) => {
       try {
         await axios.get("/sanctum/csrf-cookie");
-        const res = await _axios.post("/login", payload);
+        const res = await axios.post("/login", payload);
         if (res.data.errorMsg) {
           commit(SET_ERROR, res.data)
         }else {
@@ -29,7 +29,7 @@ export const LoginStore = {
     },
     logout: async ({ dispatch }) => {
       try {
-        await _axios.post("/logout");
+        await axios.post("/logout");
         return dispatch("getUserAuth");
       } catch (error) {
         commit(SET_ERROR, error.response.data);
