@@ -37,7 +37,7 @@ export const LoginStore = {
     },
     getUserAuth: async ({ commit }) => {
       try {
-        const res = await _axios.get("/user");
+        const res = await axios.get("api/v1/user");
         await commit(SET_USER_AUTH, res.data.data.attributes);
       } catch (error) {
         commit(SET_USER_AUTH, null)
