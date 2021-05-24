@@ -1,8 +1,8 @@
 import { _axios } from '@/plugins/axios'
 
 export default {
-  createUser (user) {
-    return _axios.post('users', user)
+  createUser () {
+    return _axios.post('users')
   },
   getAllUsers (status) {
     return _axios.get('users/' + status)
