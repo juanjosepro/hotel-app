@@ -26,7 +26,7 @@ export const UserStore = {
     },
     getAllUsers: async ({ commit }, payload = "") => {
       try {
-        const res = await UserServices.getAllUsers();
+        const res = await UserServices.getAllUsers(payload);
         if (res.data.hasOwnProperty("data")) {
           await commit(SET_ALL_USERS, res.data);
         } else {

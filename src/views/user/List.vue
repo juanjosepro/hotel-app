@@ -163,7 +163,7 @@ export default {
       } else {
         this.textStatus = "Inhabilitar";
         /* Sin parametros por defecto trae a los usuarios habilitados */
-        await this.getAllUsers();
+        await this.getAllUsers("enabled");
         this.existsUsers("Habilitados");
       }
     },
