@@ -272,7 +272,6 @@ export default {
     if (this.$route.params.id) {
       this.edit = true;
       await this.getReservationById(this.$route.params.id);
-
       this.form.id = this.reservation.id;
       this.form.categoryName = this.reservation.category.name;
       this.form.roomNumber = this.reservation.room_number;

@@ -6,7 +6,7 @@
         <button
           class="badge badge-pill badge-success shadow-success m-1 my-button"
         >
-          Registrar nueva Reserva
+          Registrar nueva Reservas
         </button>
       </router-link>
       <router-link :to="{ name: 'reservation.table' }" class="mr-4">

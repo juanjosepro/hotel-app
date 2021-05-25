@@ -73,8 +73,8 @@
                 <v-file-input
                   v-model="form.images"
                   color="deep-purple accent-4"
-                  label="Cambiar foto de perfil"
-                  placeholder="Seleccione una foto"
+                  label="agregar fotos"
+                  placeholder="Seleccione..."
                   prepend-icon="mdi-camera"
                   show-size
                   multiple
