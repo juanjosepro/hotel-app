@@ -1,11 +1,11 @@
 import { _axios } from '@/plugins/axios'
 
 export default {
+  getAllReservation () {
+    return _axios.get('reservations')
+  },
   registerReservation (reservation) {
     return _axios.post('reservations/', reservation)
-  },
-  getAllReservation () {
-    return _axios.get('reservations/')
   },
   getReservationById (id) {
     return _axios.get('reservations/' + id)

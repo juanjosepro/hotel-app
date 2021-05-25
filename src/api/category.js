@@ -1,11 +1,11 @@
 import { _axios } from '@/plugins/axios'
 
 export default {
-  createCategory (category) {
-    return _axios.post('categories', category)
-  },
   getAllCategories () {
     return _axios.get('categories')
+  },
+  createCategory (category) {
+    return _axios.post('categories', category)
   },
   getAllRoomsByCategory (name) {
     return _axios.get('categories/get-all-rooms-by-category/' + name)

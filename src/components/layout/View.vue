@@ -1,9 +1,9 @@
 <template>
-  <v-content>
+  <v-main>
     <router-view style="min-height: calc(100vh - 160px)" />
 
     <dashboard-core-footer style="align-self: flex-end" />
-  </v-content>
+  </v-main>
 </template>
 
 <script>

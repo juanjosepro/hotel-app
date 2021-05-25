@@ -3,7 +3,6 @@ import RoomServices from '@/api/room.js'
 const CREATE_ROOM = "CREATE_ROOM";
 const SET_ALL_ROOMS = "SET_ALL_ROOMS";
 const SET_ROOM = "SET_ROOM";
-const DISABLED_ROOM = "DISABLED_ROOM";
 const CLEAN_ROOM = "CLEAN_ROOM";
 const MANAGE_ERRORS = "MANAGE_ERRORS";
 const CLEAN_ERRORS = "CLEAN_ERRORS";
@@ -54,14 +53,6 @@ export const RoomStore = {
         commit(MANAGE_ERRORS, error.response.data.errors);
       }
     },
-    disabledRoom: async ({ commit }, payload) => {
-      try {
-        await RoomServices.disabledRoom(payload);
-        await commit(DISABLED_ROOM,  );
-      } catch (error) {
-        commit(MANAGE_ERRORS, error.response.data.errors);
-      }
-    },
     cleanErrors: ({ commit }) => {
       commit(CLEAN_ERRORS);
     }
@@ -86,12 +77,6 @@ export const RoomStore = {
     },
     [SET_ROOM](state, payload) {
       state.room = payload;
-    },
-    [DISABLED_ROOM](state, payload) {
-      const { rooms } = state;
-      const number = payload;
-      const newState = rooms.filter(room => room.number !== number);
-      state.rooms = newState;
     },
     [CLEAN_ROOM](state) {
       state.room = [];

@@ -291,7 +291,7 @@ export default {
   },
   async created() {
     this.cleanErrors();
-    await this.getUserById(this.$route.params.dni);
+    await this.getUserByDni(this.$route.params.dni);
     
     //if the user does not exist with the DNI entered by keyboard in the url
     if (this.user.dni) {
@@ -307,7 +307,7 @@ export default {
   },
   methods: {
     ...mapActions("roles", ["getAllRoles"]),
-    ...mapActions("users", ["updateUser", "getUserById", "cleanErrors"]),
+    ...mapActions("users", ["updateUser", "getUserByDni", "cleanErrors"]),
     ...mapActions("snackbar", ["showSnackbar"]),
 
     async update() {
@@ -334,7 +334,7 @@ export default {
           color: "success",
           msg: "Acción realizada con exito!",
         });
-        await this.getUserById(this.$route.params.dni);
+        await this.getUserByDni(this.$route.params.dni);
       } else {
         this.showSnackbar({
           color: "success",

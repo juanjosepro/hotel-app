@@ -36,9 +36,9 @@ export const UserStore = {
         commit(MANAGE_ERRORS, error.response.data.errors);
       }
     },
-    getUserById: async ({ commit }, payload) => {
+    getUserByDni: async ({ commit }, payload) => {
       try {
-        const res = await UserServices.getUserById(payload);
+        const res = await UserServices.getUserByDni(payload);
         await commit(SET_USER, res.data.data.attributes);
       } catch (error) {
         commit(MANAGE_ERRORS, error.response.data.errors);

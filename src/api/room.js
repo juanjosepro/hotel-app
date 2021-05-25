@@ -1,19 +1,16 @@
 import { _axios } from '@/plugins/axios'
 
 export default {
-  createRoom (room) {
-    return _axios.post('rooms', room)
-  },
   getAllRooms (status) {
     return _axios.get('rooms/' + status)
   },
+  createRoom (room) {
+    return _axios.post('rooms', room)
+  },
   getRoomByNumber (number) {
-    return _axios.get('rooms/' + number)
+    return _axios.get('rooms/show/' + number)
   },
-  updateRoom (id, room) {
-    return _axios.put('rooms/' + id, room)
-  },
-  disabledRoom (id) {
-    return _axios.delete('rooms/' + id)
+  updateRoom (number, room) {
+    return _axios.put('rooms/' + number, room)
   },
 }
