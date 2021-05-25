@@ -11,7 +11,7 @@ export const GuestStore = {
     guestHosped: [],
   },
   actions: {
-    getAllGuests: async ({ commit }, payload = "") => {
+    getAllGuests: async ({ commit }, payload) => {
       try {
         const res = await GuestServices.getAllGuests(payload)
         if (res.data.hasOwnProperty("data")) {

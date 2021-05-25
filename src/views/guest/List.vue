@@ -78,7 +78,7 @@ export default {
     ...mapGetters("guest", ["getGuest"]),
   },
   async created() {
-    await this.getAllGuests();
+    await this.getAllGuests("all");
     this.loading = false
   },
   methods: {

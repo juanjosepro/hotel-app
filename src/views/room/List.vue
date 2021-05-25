@@ -96,7 +96,7 @@ export default {
 
     transStatus() {
       return [
-        { text: this.$t("all"), value: "" },
+        { text: this.$t("all"), value: "all" },
         { text: this.$t("available"), value: "available" },
         { text: this.$t("occupied"), value: "occupied" },
         { text: this.$t("maintenance"), value: "maintenance" },
@@ -114,7 +114,7 @@ export default {
     },
   },
   async created() {
-    await this.getAllRooms();
+    await this.getAllRooms("all");
 
     //saved in reception view to change the status of a specific room
     const getNumber = localStorage.getItem("roomNumber");

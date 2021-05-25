@@ -25,7 +25,7 @@ export const RoomStore = {
         commit(MANAGE_ERRORS, error.response.data.errors);
       }
     },
-    getAllRooms: async ({ commit }, payload = "") => {
+    getAllRooms: async ({ commit }, payload) => {
       try {
         const res = await RoomServices.getAllRooms(payload);
         if (res.data.hasOwnProperty("data")) {

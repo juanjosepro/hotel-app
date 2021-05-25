@@ -24,7 +24,7 @@ export const UserStore = {
         commit(MANAGE_ERRORS, error.response.data.errors);
       }
     },
-    getAllUsers: async ({ commit }, payload = "") => {
+    getAllUsers: async ({ commit }, payload) => {
       try {
         const res = await UserServices.getAllUsers(payload);
         if (res.data.hasOwnProperty("data")) {

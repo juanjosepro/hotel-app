@@ -17,7 +17,7 @@
         </button>
       </router-link>
     </v-col>
-    <v-col cols="12">
+    <v-col cols="12" class="py-2">
       <v-sheet height="64">
         <v-toolbar
           flat
