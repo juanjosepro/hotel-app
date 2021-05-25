@@ -179,8 +179,7 @@ export default {
         process.env.VUE_APP_URL + "configuracion-del-hotel";
     }
     if (this.categories.length === 0) {
-      confirm("Primero debe crear una categoria.");
-      window.location.href = process.env.VUE_APP_URL + "categorias";
+      alert("Primero debe crear una categoria.")
     }
   },
   methods: {
