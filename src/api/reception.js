@@ -5,7 +5,7 @@ export default {
     return _axios.get('reception')
   },
   registeNewGuest (guest) {
-    return _axios.post('reception/', guest)
+    return _axios.post('reception', guest)
   },
   //more information about the guest
   moreInformationAboutTheGuest (number) {

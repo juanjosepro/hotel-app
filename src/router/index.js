@@ -10,6 +10,7 @@ import { ReservationRoutes } from '@/router/routes/reservation.js'
 import { RoleRoutes } from '@/router/routes/role.js'
 import { RoomRoutes } from '@/router/routes/room.js'
 import { UserRoutes } from '@/router/routes/user.js'
+//const UserRoutes = () => import(/* webpackChunkName: "group-user" */ '@/router/routes/user.js')
 
 Vue.use(VueRouter)
 

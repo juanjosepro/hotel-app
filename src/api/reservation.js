@@ -5,7 +5,7 @@ export default {
     return _axios.get('reservations')
   },
   registerReservation (reservation) {
-    return _axios.post('reservations/', reservation)
+    return _axios.post('reservations', reservation)
   },
   getReservationById (id) {
     return _axios.get('reservations/' + id)

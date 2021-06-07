@@ -201,9 +201,9 @@
     async created(){
       await this.checkTimeLimit();
 
-      setInterval(() => {
+      setInterval(async () => {
         this.setLoader(false)
-        this.checkTimeLimit();
+        await this.checkTimeLimit();
         this.setLoader(true)
       }, 60000);
 

@@ -23,7 +23,7 @@ _axios.interceptors.request.use(
     // Do something before request is sent
     if (store.state.loaderTrue) {
       store.commit('loader/START_LOADING');
-    } 
+    }
     return config
   },
   function (error) {
