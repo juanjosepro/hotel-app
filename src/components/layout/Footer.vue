@@ -29,11 +29,11 @@
           md="auto"
         >
           <div class="body-1 font-weight-light pt-6 pt-md-0 text-center">
-            &copy; 2021, Realizado por
+            &copy; 2021, Desarrollado por
             <v-icon size="18">
               mdi-heart
             </v-icon>
-            <a href="https://www.juanjosedev.com">Try It</a> Caminemos juntos.
+            <a href="https://juanjosepau.com/">Juan José Pau</a>
           </div>
         </v-col>
       </v-row>

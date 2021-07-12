@@ -12,6 +12,12 @@
         >{{ errors.errorMsg }}</small
       >
       <h1>Hotel App</h1>
+
+      <ul class="credentials">
+        <li>Email: <b>admin@gmail.com</b></li>
+        <li>Password: <b>supernova08</b></li>
+      </ul>
+
       <div class="txtb">
         <input
           v-model="form.email"
@@ -57,8 +63,8 @@ import { mapActions, mapState } from "vuex";
 export default {
   data: () => ({
     form: {
-      email: "",
-      password: "",
+      email: "admin@gmail.com",
+      password: "supernova08",
     },
     emailFocus: false,
     passwordFocus: false,
@@ -103,4 +109,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped src="@/sass/my-style/_login.scss">
+<style lang="scss" scoped src="@/sass/my-style/_login.scss" />
+<style>
+.credentials  li{
+  list-style: none;
+  text-align: center;
+  font-size: 13px;
+}
+</style>
