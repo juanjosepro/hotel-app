@@ -228,7 +228,11 @@ export default {
 
       await this.getGuest(this.pathParameter);
 
+<<<<<<< HEAD
       this.routeForPDF = process.env.VUE_APP_APIURL + 'generate-pdf/' + this.pathParameter
+=======
+      this.routeForPDF = process.env.VUE_APP_APIURL + `/generate-pdf/${this.pathParameter}`
+>>>>>>> 63eda9da4ff9645d1300f8eb1fe61a1c2ac782df
       this.realTimeDate = true;
     } else {
       location.href = "/";
