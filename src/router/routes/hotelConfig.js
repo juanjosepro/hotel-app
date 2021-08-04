@@ -4,9 +4,22 @@ export const HotelConfigRoutes = [
     name: 'hotel',
     component: () => import(/* webpackChunkName: "HotelConfig" */ '@/views/hotelConfig/Index'),
     meta: {
-      auth:true,
-      adminAccess: true,
-      recepAccess: false,
+      permissions: [
+        {
+          role: "admin",
+          access: true
+        },
+        {
+          role: "recep",
+          access: false,
+          redirect: "reception"
+        },
+        {
+          role: "unauthorized",
+          access: false,
+          redirect: "login"
+        }
+      ]
     },
   },
 ]

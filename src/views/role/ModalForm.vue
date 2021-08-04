@@ -30,7 +30,7 @@
                 <v-textarea
                   v-model="form.description"
                   rows="3"
-                  label="* Descripción"
+                  label="Descripción"
                   outlined
                   name="input-7-4"
                   required

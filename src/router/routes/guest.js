@@ -4,9 +4,21 @@ export const GuestRoutes = [
     name: 'guest',
     component: () => import(/* webpackChunkName: "GuestList" */ '@/views/guest/Index'),
     meta: {
-      auth:true,
-      adminAccess: true,
-      recepAccess: true,
+      permissions: [
+        {
+          role: "admin",
+          access: true
+        },
+        {
+          role: "recep",
+          access: true,
+        },
+        {
+          role: "unauthorized",
+          access: false,
+          redirect: "login"
+        }
+      ]
     },
   },
 ]

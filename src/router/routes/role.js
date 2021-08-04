@@ -4,9 +4,22 @@ export const RoleRoutes = [
     name: 'roles',
     component: () => import(/* webpackChunkName: "Roles" */ '@/views/role/Index'),
     meta: {
-      auth:true,
-      adminAccess: true,
-      recepAccess: false,
+      permissions: [
+        {
+          role: "admin",
+          access: true
+        },
+        {
+          role: "recep",
+          access: false,
+          redirect: "reception"
+        },
+        {
+          role: "unauthorized",
+          access: false,
+          redirect: "login"
+        }
+      ]
     },
   },
 ]

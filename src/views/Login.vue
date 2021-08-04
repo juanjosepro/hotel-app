@@ -91,9 +91,10 @@ export default {
     isAuth(){
       if (this.auth) {
         if (this.userAuth.role.id === "1") {
-          return this.$router.replace("/");
+          location.href = '/'
+        } else {
+          location.href = '/recepcion'
         }
-        return this.$router.push({ name: "reception" });
       }
     },
     focusEmail() {

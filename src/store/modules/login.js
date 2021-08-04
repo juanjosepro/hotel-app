@@ -24,7 +24,7 @@ export const LoginStore = {
         const res = await newAxios.post('login', payload);
         if (res.data.errorMsg) {
           commit(SET_ERROR, res.data)
-        }else {
+        } else {
           await dispatch("getUserAuth");
         }
       } catch (error) {
@@ -42,7 +42,8 @@ export const LoginStore = {
     getUserAuth: async ({ commit }) => {
       try {
         const res = await _axios.get("user");
-        await commit(SET_USER_AUTH, res.data.data.attributes);
+        commit(SET_USER_AUTH, res.data.data.attributes);
+        return res.data.data.attributes;
       } catch (error) {
         commit(SET_USER_AUTH, null)
       }
@@ -50,11 +51,16 @@ export const LoginStore = {
   },
   mutations: {
     [SET_USER_AUTH](state, payload) {
-      state.userAuth = payload;
-      state.auth = Boolean(payload);
+      if (payload) {
+        state.userAuth = payload;
+        localStorage.setItem('role', payload.role.id)
+        state.auth = Boolean(payload);  
+      } else {
+        localStorage.removeItem('role');        
+      }
     },
     [SET_ERROR](state, payload) {
       state.errors = payload
     }
-  }
+  },
 };

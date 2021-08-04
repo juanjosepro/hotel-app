@@ -9,45 +9,9 @@ const CLEAN_ERRORS = "CLEAN_ERRORS";
 export const RoleStore = {
   namespaced: true,
   state: {
-    role: {},
+    role: null,
     roles: [],
     errors: []
-  },
-  actions: {
-    createRole: async ({ commit }, payload) => {
-      try {
-        const res = await RoleServices.createRole(payload);
-        await commit(CREATE_ROLE, res.data.data.attributes);
-      } catch (error) {
-        commit(MANAGE_ERRORS, error.response.data.errors);
-      }
-
-    },
-    getAllRoles: async ({ commit }) => {
-      try {
-        const res = await RoleServices.getAllRoles();
-        const roles = res.data;
-
-        if (roles.hasOwnProperty("data")) {
-          await commit(SET_ALL_ROLES, roles);
-        }
-      } catch (error) {
-        commit(MANAGE_ERRORS, error.response.data.errors);
-      }
-    },
-    updateRole: async ({ commit }, payload) => {
-      try {
-        const { id } = payload;
-        const { role } = payload;
-        const res = await RoleServices.updateRole(id, role);
-        await commit(UPDATE_ROLE, res.data.data.attributes);
-      } catch (error) {
-        commit(MANAGE_ERRORS, error.response.data.errors);
-      }
-    },
-    cleanErrors: ({ commit }) => {
-      commit(CLEAN_ERRORS);
-    }
   },
   mutations: {
     [CREATE_ROLE](state, payload) {
@@ -79,9 +43,44 @@ export const RoleStore = {
       state.errors = [];
     }
   },
+  actions: {
+    getAllRoles: async ({ commit }) => {
+      try {
+        const res = await RoleServices.getAllRoles();
+        const roles = res.data;
+
+        if (roles.hasOwnProperty("data")) {
+          await commit(SET_ALL_ROLES, roles);
+        }
+      } catch (error) {
+        console.error(error.message)
+      }
+    },
+    createRole: async ({ commit }, payload) => {
+      try {
+        const res = await RoleServices.createRole(payload);
+        await commit(CREATE_ROLE, res.data.data.attributes);
+      } catch (error) {
+        commit(MANAGE_ERRORS, error.response.data.errors);
+      }
+
+    },
+    updateRole: async ({ commit }, payload) => {
+      try {
+        const { id, role } = payload;
+        const res = await RoleServices.updateRole(id, role);
+        await commit(UPDATE_ROLE, res.data.data.attributes);
+      } catch (error) {
+        commit(MANAGE_ERRORS, error.response.data.errors);
+      }
+    },
+    cleanErrors: ({ commit }) => {
+      commit(CLEAN_ERRORS);
+    }
+  },
   getters: {
     getRole: state => id => {
-      state.role = {}
+      state.role = null
       state.role = state.roles.find(role => role.id === id);
       return state.role;
     },

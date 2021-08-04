@@ -4,9 +4,21 @@ export const RoomRoutes = [
     name: 'rooms',
     component: () => import(/* webpackChunkName: "Room" */ '@/views/room/Index'),
     meta: {
-      auth:true,
-      adminAccess: true,
-      recepAccess: true,
+      permissions: [
+        {
+          role: "admin",
+          access: true
+        },
+        {
+          role: "recep",
+          access: true
+        },
+        {
+          role: "unauthorized",
+          access: false,
+          redirect: "login"
+        }
+      ]
     },
   },
 ]

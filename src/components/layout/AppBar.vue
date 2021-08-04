@@ -225,7 +225,7 @@
       },
       async signOff() {
         await this.logout()
-        return this.$router.push({name: "login"});
+        location.href = '/login'
       },
       async checkTimeLimit(){
         await this.getAllGuests("hosped");

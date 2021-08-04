@@ -7,16 +7,32 @@ import './plugins/base'
 import './plugins/vee-validate'
 import vuetify from './plugins/vuetify'
 import i18n from './i18n'
-//import './plugins/moment'
 import './registerServiceWorker'
+import VueRouterUserRoles from "vue-router-user-roles";
 
-//login
-store.dispatch("login/getUserAuth"); 
+let auth = store.dispatch("login/getUserAuth");
 
-new Vue({
-  store,
-  router,
-  vuetify,
-  i18n,
-  render: h => h(App),
-}).$mount('#app')
+auth.then((user) => {
+  let role = null
+
+  if (!user) {
+    console.log('unautgorized')
+  } else {
+    role = user.role.id === "1" ? 'admin' : "recep"
+  }
+
+  Vue.use(VueRouterUserRoles, { router });
+  
+  let authenticate = Promise.resolve({ role: role });
+  
+  authenticate.then(user => {
+    Vue.prototype.$user.set(user);
+    new Vue({
+      store,
+      router,
+      vuetify,
+      i18n,
+      render: h => h(App),
+    }).$mount('#app')
+  });
+})

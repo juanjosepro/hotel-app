@@ -191,6 +191,7 @@ export default {
     },
     computedItems() {
       if (this.userAuth.role.id === "1") {
+        /* console.log(this.userAuth) */
         return this.itemsAdmin.map(this.mapItem);
       }
       return this.itemsRecep.map(this.mapItem);
@@ -226,7 +227,7 @@ export default {
     },
     async signOff() {
       await this.logout()
-      return this.$router.push({path: "login"});
+      location.href = '/login'
     },
     authUser() {
       this.user.push({
