@@ -13,8 +13,15 @@
       >
       <h1>Hotel App</h1>
 
+      <h5 style="text-align: center;">ADMINISTRADOR</h5>
       <ul class="credentials">
         <li>Email: <b>admin@gmail.com</b></li>
+        <li>Password: <b>supernova08</b></li>
+      </ul>
+      <br>
+      <h5 style="text-align: center;">RECEPCIONISTA</h5>
+      <ul class="credentials">
+        <li>Email: <b>recep@gmail.com</b></li>
         <li>Password: <b>supernova08</b></li>
       </ul>
 
@@ -46,13 +53,6 @@
       </div>
 
       <input type="submit" class="logbtn" value="Login" />
-
-      <div class="bottom-text">
-        Don't have account? <a href="#">Sign up</a><br /><br />
-        <a class="btn btn-link" href="password.request">
-          Forgot Your Password?
-        </a>
-      </div>
     </form>
   </div>
 </template>
@@ -78,9 +78,6 @@ export default {
       return (this.passwordFocus =
         this.form.password.length > 0 ? true : false);
     },
-  },
-  created() {
-    this.isAuth()
   },
   methods: {
     ...mapActions("login", ["login", "getUserAuth"]),
@@ -115,6 +112,6 @@ export default {
 .credentials  li{
   list-style: none;
   text-align: center;
-  font-size: 13px;
+  font-size: 11px;
 }
 </style>

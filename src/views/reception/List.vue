@@ -1,7 +1,8 @@
 <template>
   <loading v-if="loading"/>
   <div v-else>
-    <div style="display: flex; justify-content: flex-end; margin-bottom: 10px">
+    <div class="tags">
+      <!-- style="display: flex; justify-content: flex-end; margin-bottom: 10px" -->
       <span class="badge badge-pill badge-success shadow-success m-1"
         >Disponible</span
       >

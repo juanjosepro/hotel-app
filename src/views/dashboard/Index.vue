@@ -142,7 +142,7 @@ export default {
           ],
         };
       } catch (error) {
-        console.log(error);
+        console.error(error.message);
       }
     },
     uniqueColors(count) {
@@ -182,7 +182,7 @@ export default {
           ],
         };
       } catch (error) {
-        console.log(error);
+        console.error(error.message);
       }
     },
   },

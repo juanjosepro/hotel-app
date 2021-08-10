@@ -28,7 +28,7 @@ export const LoginStore = {
           await dispatch("getUserAuth");
         }
       } catch (error) {
-        console.log(error)
+        console.error(error.message)
       }
     },
     logout: async ({ dispatch, commit }) => {
@@ -51,13 +51,8 @@ export const LoginStore = {
   },
   mutations: {
     [SET_USER_AUTH](state, payload) {
-      if (payload) {
-        state.userAuth = payload;
-        localStorage.setItem('role', payload.role.id)
-        state.auth = Boolean(payload);  
-      } else {
-        localStorage.removeItem('role');        
-      }
+      state.userAuth = payload;
+      state.auth = Boolean(payload);
     },
     [SET_ERROR](state, payload) {
       state.errors = payload

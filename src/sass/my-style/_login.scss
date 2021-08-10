@@ -9,6 +9,7 @@
   }
   
   .login-form {
+    margin: 0;
     width: 360px;
     background: #f1f1f1;
     height: 530px;
@@ -22,7 +23,7 @@
   
   .login-form h1 {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
   
   .txtb {
@@ -111,4 +112,14 @@
     margin-top: 60px;
     text-align: center;
     font-size: 13px;
+  }
+
+  @media (max-width:400px) {
+    .login-form {
+        width: 300px;
+        margin: 0;
+    }
+    .txtb span::after {
+        transform: translate(-220px, 40px);
+    }
   }

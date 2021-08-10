@@ -19,6 +19,24 @@ const routes = [
     name: 'login',
     path: '/login',
     component: () => import(/* webpackChunkName: "Login" */ '@/views/Login'),
+    meta: {
+      permissions: [
+        {
+          role: "admin",
+          access: false,
+          redirect: "Dashboard"
+        },
+        {
+          role: "recep",
+          access: false,
+          redirect: "reception"
+        },
+        {
+          role: "unauthorized",
+          access: true
+        }
+      ]
+    },
   },
   {
     path: '/',
