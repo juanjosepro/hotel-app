@@ -15,7 +15,7 @@ export const GuestStore = {
       try {
         const res = await GuestServices.getAllGuests(payload)
         if (res.data.hasOwnProperty("data")) {
-          if (payload === "") {
+          if (payload === "all") {
             commit(SET_ALL_GUEST, res.data.data)
           } else {
             //for notification of time limit

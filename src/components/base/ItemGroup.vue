@@ -23,7 +23,7 @@
       </v-list-item-avatar>
 
       <v-list-item-content>
-        <v-list-item-title v-text="item.title" />
+        <v-list-item-title v-text="item.title" class="text-capitalize"/>
       </v-list-item-content>
     </template>
 

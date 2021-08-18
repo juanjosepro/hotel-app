@@ -27,7 +27,7 @@
 
         <v-list-item-content>
           <v-list-item-title
-            class="text-uppercase"
+            class="text-capitalize"
             style="font-size: 18px"
             v-text="profile.title"
           />
