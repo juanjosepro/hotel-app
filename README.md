@@ -1,56 +1,47 @@
-# Hotel Management App
+# [Aplicación de gestión hotelera](#)
 
-## This application is created for hotel administration and management
+![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
-* Dashboard
-* Roles
-    * Create
-    * Update
-* Users
-    * List users (enabled or disabled)
-    * Creates a user and is assigned a role
-    * Update
-    * Disabled or enabled Users
-* Categories
-    * List Categories
-    * Create
-    * Update
-* Rooms
-    * List rooms by status available, occupied, cleaning, maintenance, disabled
-    * Create
-    * Update
-* Reception
-    * List of categories with their respective rooms
-    * Host a guest
-    * See the information of the guest hosted
-* Reservation
-    * List reservation by tables and calendar
-    * Create a new reservation by call or social networks
-* Guests
-    * List of Guests
-* Box
-    * List of the last movements for each day
-* Hotel Config
-    * Update hotel data
+>Ver Demo [Hotel App](https://hotel.juanjosepau.com "Ver demo")
 
-### Screenshot
-#### Page Roles
+### Esta aplicación esta creado para la administración de un hotel con dos roles principales(Administrador y recepcionista).
+### La aplicación consume datos de una Api echa en Laravel.
+
+### El sistema cumple con las siguientes funciones:  
+
+* Crear grupos de trabajadores.
+* Registrar trabajadores y agregarlos a un grupo.
+* Registrar categorias de habitaciones (matrimonial, triple, premiun).
+* Registrar habitaciones y asignarles una categoria.
+* Manejo de la recepción (registrando el ingreso y salida de un huesped).
+* Registrar nuevas reservas por (web, llamadas, redes sociales).
+* Etc...
+
+## Capturas de pantalla
+> Página de Roles  
+
 ![screenshots1](public/assets/screenshots/image1.png)
 
-#### Page Users
+> Página de Usuarios  
+
 ![screenshots2](public/assets/screenshots/image2.png)
 
-#### Page Categories
+> Página Categorías  
+
 ![screenshots3](public/assets/screenshots/image3.png)
 
-#### Page Categories Create a new Category
+> Página de crear una nueva categoría  
+
 ![screenshots4](public/assets/screenshots/image4.png)
 
-#### Page Reception
+> Página de Recepción  
+
 ![screenshots5](public/assets/screenshots/image5.png)
 
-#### Page Reservation
+> Página de Reservación  
+
 ![screenshots6](public/assets/screenshots/image6.png)
-#### Page box
+> Página de Caja  
+
 ![screenshots7](public/assets/screenshots/image7.png)
 
